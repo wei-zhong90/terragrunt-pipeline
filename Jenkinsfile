@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        AWS_DEFAULT_REGION = 'cn-north-1'
+    }
     stages {
             stage('plan') {
                 steps {
