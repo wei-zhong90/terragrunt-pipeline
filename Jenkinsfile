@@ -7,7 +7,7 @@ pipeline {
             stage('plan') {
                 steps {
                     withCredentials([usernamePassword(credentialsId: 'aws_cn_cred', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
-                        echo "${env}"
+                        sh "env"
                         sh "make plan dir=${env.BRANCH_NAME}"
                     }
                 }
