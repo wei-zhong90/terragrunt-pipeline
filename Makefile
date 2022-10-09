@@ -6,3 +6,6 @@ dev uat prod:
 
 destroy:
 	cd aws/$(dir) && terragrunt run-all destroy
+
+plan:
+	cd aws/$(dir) && terragrunt run-all plan
