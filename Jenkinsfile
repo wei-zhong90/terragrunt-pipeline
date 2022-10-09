@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { node { label 'china' } }
     environment {
         AWS_DEFAULT_REGION = 'cn-north-1'
         acc = """${sh(
@@ -10,16 +10,12 @@ pipeline {
     stages {
             stage('plan') {
                 steps {
-                    withCredentials([usernamePassword(credentialsId: 'aws_cn_cred', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
-                        sh "make plan dir=$acc"
-                    }
+                    sh "make plan dir=$acc"
                 }
             }
             stage('build') {
                 steps {
-                    withCredentials([usernamePassword(credentialsId: 'aws_cn_cred', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
-                        sh "make $acc"
-                    }
+                    sh "make $acc"
                 }
             }
     }
