@@ -10,12 +10,12 @@ pipeline {
     stages {
             stage('plan') {
                 steps {
-                    sh "make plan dir=$acc"
+                    sh "echo yes | make plan dir=$acc"
                 }
             }
             stage('build') {
                 steps {
-                    sh "make $acc"
+                    sh "echo yes | make $acc"
                 }
             }
     }
