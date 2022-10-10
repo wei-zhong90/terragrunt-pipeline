@@ -10,7 +10,7 @@ pipeline {
     stages {
             stage('build') {
                 steps {
-                    sh "echo yes | make $acc"
+                    sh 'echo yes | make $acc'
                 }
             }
     }
