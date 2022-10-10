@@ -8,4 +8,4 @@ destroy:
 	cd aws/$(dir) && terragrunt run-all destroy -auto-approve
 
 plan:
-	cd aws/$(dir) && terragrunt run-all plan
+	cd aws/$(dir) && terragrunt run-all plan -skip_outputs true

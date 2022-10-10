@@ -8,6 +8,11 @@ pipeline {
             )}"""
     }
     stages {
+            stage('plan') {
+                steps {
+                    sh 'make plan dir=$acc'
+                }
+            }
             stage('build') {
                 steps {
                     sh 'echo yes | make $acc'
